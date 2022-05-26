@@ -1,0 +1,29 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+{% block Content_2 %}
+
+    <a href="{% url 'NewGames' %}">Create</a>
+
+    <ul> 
+
+        {% for games in object_list %} 
+
+        <li>
+
+            <p>Name: {{games.name}}</p>
+
+            <p>
+                <a href="{% url 'DetailGames' games.id %}">View</a>
+                <a href="{% url 'EditGames' games.id %}">Edit</a>
+                <a href="{% url 'DeleteGames' games.id %}">Delete</a>
+            </p>
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}
